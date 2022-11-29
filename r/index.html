@@ -50,7 +50,7 @@
       background: #fff;
       max-width: 800px;
       padding: 15px;
-      margin: 0 auto;
+      margin: 0 auto 200px;
       box-sizing: border-box;
       border-radius: 3px;
       position: relative;
@@ -117,20 +117,6 @@
     .p-2 span{
       font-weight: normal;
     }
-    /* .p-2::after{
-      width: 100px;
-      height: 200%;
-      transform: scale(1, 0.5);
-      transform-origin: left top;
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      box-sizing: border-box;
-      border-bottom: 1px dashed #000;
-      border-image: linear-gradient(to right, #000, #fff) 1;
-    } */
-
     .p-1 {
       color: #888;
     }
@@ -178,6 +164,8 @@
     .qr img{
       width: 50px;
       height: 50px;
+      padding: 1px;
+      border: 1px solid #fff;
     }
 
     .qr svg {
@@ -210,6 +198,45 @@
     @media screen and (min-width: 800px) {
       body {
         padding: 30px 0;
+      }
+    }
+
+    @media(prefers-color-scheme: dark) {
+      article {
+        color: #d3d3d3;
+        background: #1e1e1e;
+      }
+      p {
+        color: #d3d3d3;
+      }
+      .p-0::before,
+      .p-2::before {
+        border-color: #888;
+      }
+      .p-1 {
+        color: #888;
+      }
+
+      .p-title {
+        color: #d3d3d3;
+      }
+
+      .time {
+        color: #888;
+      }
+
+      h2::after,
+      .p-title::after {
+
+        border-bottom-color: 1px solid #d3d3d3;
+        border-image: linear-gradient(to right, #d3d3d3, #1e1e1e) 1;
+      }
+
+      .extra a {
+        color: #888 !important;
+      }
+      .company::before {
+        border-color: #d3d3d3;
       }
     }
   </style>
