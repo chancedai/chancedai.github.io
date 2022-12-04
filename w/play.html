@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 50px;">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no,viewport-fit=cover" />
+  <meta name="description" content="戴倡作品" lang="zh-CN" />
+  <meta name="keywords" content="戴倡,作品" lang="zh-CN" />
+  <meta name="Author" content="works of changdai" lang="en" />
+  <title>Chang Dai</title>
+  <style type="text/css">
+    html,
+    body{
+      margin: 0;
+      padding: 0;
+    }
+    .video-wrapper{
+      width: 100vw;
+      height: 100vh;
+      max-width: 100vh;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .video-wrapper video{
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="video-wrapper">
+    <video src="" controls id="video" autoplay>
+      您的浏览器不支持 video 标签
+    </video>
+    <script>
+      var params = (function(){ var obj = {}; location.href.replace(/([^?=&]+)=([^?=&]+)/gi, function (_, p1, p2) { obj[p1] = p2; }); return obj; })();
+      var id = params.id || '';
+      var ids = ['3x3', 'football', 'golf', 'player', 'snow', 'sports', 'team', 'worldcup'];
+      if(ids.indexOf(id) === -1){
+        id = 'worldcup';
+      }
+      document.getElementById('video').src = 'img/'+ id +'.mp4';
+    </script>
+  </div>
+</body>
+
+</html>
