@@ -43,7 +43,9 @@
       if(ids.indexOf(id) === -1){
         id = 'worldcup';
       }
-      document.getElementById('video').src = 'img/'+ id +'.mp4';
+      var video = document.getElementById('video');
+      video.src = 'img/'+ id +'.mp4';
+      video.poster = 'img/'+ id + '.jpg';
     </script>
   </div>
 </body>
