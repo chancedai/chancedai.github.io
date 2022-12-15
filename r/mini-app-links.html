@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>微博小程序链接</title>
+    <style>
+        body,
+        html {
+            word-break: break-all;
+            font-family: 'Courier New', Courier, monospace;
+            color: #333;
+            background: #fff;
+            text-rendering: optimizelegibility;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 100;
+            color: #000;
+            line-height: 1.35;
+        }
+
+        h1,
+        h2 {
+            margin-top: 1.2em;
+            margin-bottom: 0.6em;
+            line-height: 1.35;
+        }
+
+        h1 {
+            font-size: 2em;
+        }
+
+        h2 {
+            font-size: 1.8em;
+        }
+
+        a {
+            color: rgb(0, 0, 238);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        a {
+            border-bottom: 1px solid rgb(0, 0, 238);
+        }
+
+        a:hover {
+            border-bottom-color: #555;
+            color: #555;
+            text-decoration: none;
+        }
+
+        dt,
+        strong,
+        b {
+            font-weight: bold;
+            color: #000;
+        }
+
+        dl {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 1em;
+        }
+        dl:last-child{
+            border-bottom: none;
+        }
+
+        dt {
+            margin-left: 0;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        dl,
+        dd {
+            margin-left: 0;
+            padding-left: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>小程序链接汇总</h1>
+
+    <div id="list" class="list"></div>
+
+    <script>
+        var urls = {
+            世界杯赛程: {
+                '*': {
+                    默认: 'id=qjx8b42yup',
+                    赛程: 'id=qjx8b42yup&key=schedule',
+                    积分: 'id=qjx8b42yup&key=bloox',
+                    晋级: 'id=qjx8b42yup&key=bracket',
+                    球员榜: 'id=qjx8b42yup&key=career',
+                },
+            },
+            超话球员球队: {
+                '*': {
+                    球员: 'id=gp9iscayfw&page=pages/home/home&pid=56764',
+                    球队: 'id=gp9iscayfw&page=pages/home/home&tid=162',
+                },
+            },
+            国际足球: {
+                全部: {
+                    '英超-默认': 'id=2cxn0vkocx',
+                    '英超-积分': 'id=2cxn0vkocx&tab=0,1',
+                    '英超-球员榜': 'id=2cxn0vkocx&tab=0,2',
+                },
+                英超: {
+                    赛程: 'id=2cxn0vkocx&league=4',
+                    积分: 'id=2cxn0vkocx&league=4&tab=1',
+                    球员榜: 'id=2cxn0vkocx&league=4&tab=2',
+                },
+                西甲: {
+                    赛程: 'id=2cxn0vkocx&league=2',
+                    积分: 'id=2cxn0vkocx&league=2&tab=1',
+                    球员榜: 'id=2cxn0vkocx&league=2&tab=2',
+                },
+                意甲: {
+                    赛程: 'id=2cxn0vkocx&league=1',
+                    积分: 'id=2cxn0vkocx&league=1&tab=1',
+                    球员榜: 'id=2cxn0vkocx&league=1&tab=2',
+                },
+                德甲: {
+                    赛程: 'id=2cxn0vkocx&league=3',
+                    积分: 'id=2cxn0vkocx&league=3&tab=1',
+                    球员榜: 'id=2cxn0vkocx&league=3&tab=2',
+                },
+                法甲: {
+                    赛程: 'id=2cxn0vkocx&league=5',
+                    积分: 'id=2cxn0vkocx&league=5&tab=1',
+                    球员榜: 'id=2cxn0vkocx&league=5&tab=2',
+                },
+                欧冠: {
+                    赛程: 'id=2cxn0vkocx&league=10',
+                    积分: 'id=2cxn0vkocx&league=10&tab=1',
+                    球员榜: 'id=2cxn0vkocx&league=10&tab=2',
+                },
+                欧联: {
+                    赛程: 'id=2cxn0vkocx&league=11',
+                    积分: 'id=2cxn0vkocx&league=11&tab=1',
+                    球员榜: 'id=2cxn0vkocx&league=11&tab=2',
+                },
+            },
+        };
+        var html = [];
+        var count = 0;
+        for (const key in urls) {
+            if (Object.hasOwnProperty.call(urls, key)) {
+                const object1 = urls[key];
+                html.push('<h2>' + (count + 1) + '.' + key + '</h2>');
+                count++;
+                html.push('<dl>');
+
+                for (const key1 in object1) {
+                    if (Object.hasOwnProperty.call(object1, key1)) {
+                        const object2 = object1[key1];
+                        if (key1 !== '*') {
+                            html.push('<dt>' + key1 + '</dt>');
+                        }
+                        for (const key2 in object2) {
+                            if (Object.hasOwnProperty.call(object2, key2)) {
+                                const element2 = object2[key2];
+                                html.push(
+                                    '<dd><span>' +
+                                    key2 +
+                                    '</span>:<a href="webio2news.html?url=' +
+                                    encodeURIComponent(
+                                        'https://m.weibo.cn/c/wbox?' + object2[key2]
+                                    ) +
+                                    '">' +
+                                    element2 +
+                                    '</a></dd>'
+                                );
+                            }
+                        }
+                    }
+                }
+
+                html.push('</dl>');
+            }
+        }
+        document.getElementById('list').innerHTML = html.join('');
+    </script>
+</body>
+
+</html>

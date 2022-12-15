@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>微博小程序二维码</title>
+    <style>
+        body,
+        html {
+            padding: 0;
+            margin: 0;
+            word-break: break-all;
+            font-family: 'Courier New', Courier, monospace;
+            color: #333;
+            background: #fff;
+            text-rendering: optimizelegibility;
+        }
+
+        .hd {
+            background: #eee;
+            padding: 20px 10px 10px;
+            margin-bottom: 5px;
+        }
+
+        textarea {
+            word-break: break-all;
+            width: 100%;
+            font-family: 'Courier New', Courier, monospace;
+            color: #333;
+            padding: 5px;
+            box-sizing: border-box;
+            border-color: #ddd;
+        }
+
+        .wrapper {
+            padding: 20px;
+            max-width: 750px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        .qrcode {
+            display: block;
+            width: 200px;
+            height: 200px;
+            margin: 10px auto;
+        }
+
+        fieldset {
+            border-width: 1px;
+        }
+
+        .tip {
+            font-size: 12px;
+            padding-left: 5px;
+            margin: 0 0 5px 0;
+            padding: 0 0 0 5px;
+        }
+
+        fieldset textarea,
+        .tip {
+            color: #888;
+            border-color: #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="hd">
+            <textarea name="" id="url" cols="30" rows="1"
+                placeholder="请输入微博小程序 h5 地址，如：https://m.weibo.cn/c/wbox?id=qjx8b42yup"></textarea>
+            <p class="tip">输入完成后，扫描或点击二维码即可呼起；安卓某些浏览器不支持点击呼起</p>
+        </div>
+        <fieldset>
+            <legend>新浪微博</legend>
+            <a href="javascript:;" class="qrcode" id="weiboQrcode"></a>
+            <textarea readonly name="" id="weiboSchemeInput" cols="30" rows="2"></textarea>
+
+        </fieldset>
+        <fieldset>
+            <legend>新浪新闻</legend>
+            <a href="javascript:;" class="qrcode" id="newsQrcode"></a>
+            <textarea readonly name="" id="newsSchemeInput" cols="30" rows="2"></textarea>
+
+        </fieldset>
+    </div>
+
+    <script src="//n.sinaimg.cn/default/7919a7ba/20220118/qrcode.min.js"></script>
+    <script>
+        function getParams(link) {
+            var obj = {};
+            link.replace(/([^?=&]+)=([^?=&]+)/gi, function (_, p1, p2) {
+                obj[p1] = p2;
+            });
+            return obj;
+        }
+
+        var makeCode = function (text1, text2) {
+            var width = 200;
+            newsQrcode.innerHTML = '';
+            newsQrcode.href = text1;
+
+            weiboQrcode.innerHTML = '';
+            weiboQrcode.href = text2;
+
+            try {
+                new QRCode(document.getElementById('newsQrcode'), {
+                    text: text1,
+                    width: width,
+                    height: width,
+                    colorDark: '#000',
+                    colorLight: '#fff',
+                    correctLevel: QRCode.CorrectLevel.M,
+                });
+            } catch (error) {
+                newsQrcode.innerHTML = JSON.stringify(error);
+            }
+
+            try {
+                new QRCode(document.getElementById('weiboQrcode'), {
+                    text: text2,
+                    width: width,
+                    height: width,
+                    colorDark: '#333',
+                    colorLight: '#fff',
+                    correctLevel: QRCode.CorrectLevel.M,
+                });
+            } catch (error) {
+                weiboQrcode.innerHTML = JSON.stringify(error);
+            }
+
+        };
+
+        var byId = function (id) {
+            return document.getElementById(id);
+        };
+
+        var input = byId('url');
+        var newsQrcode = byId('newsQrcode');
+        var weiboQrcode = byId('weiboQrcode');
+        var newsSchemeInput = byId('newsSchemeInput');
+        var weiboSchemeInput = byId('weiboSchemeInput');
+
+        //  如果 location.href 上有 url参数，使用 url 参数；否则尝试使用缓存
+        if (getParams(location.href).url) {
+            input.value = decodeURIComponent(getParams(location.href).url);
+        } else {
+            input.value =
+                localStorage.getItem('weibo2news-url') ||
+                'https://m.weibo.cn/c/wbox?id=2567784587&wbox_mode=test&sessionId=430021';
+        }
+
+
+        //   转换
+        function convert() {
+            var url = input.value;
+            var searchParams = getParams(url);
+            var id = searchParams.id;
+            var page = searchParams.page || '';
+
+            delete searchParams.id;
+            delete searchParams.page;
+
+            // 生成 scheme
+            // sinanews://sina.cn/weibo/miniProgram.sv?appid=fbepBRu50I&scheme=pages%2Fstream%2Fstream&params=%7B%20%22wbox_mode%22%3A%20%22test%22%2C%20%22sessionId%22%3A%20%22270744%22%7D&isSilence=1&skipAd=1&k=****NaN*1663298820424***
+            var newsScheme = [
+                'sinanews://sina.cn/weibo/miniProgram.sv?appid=',
+                id,
+                '&scheme=',
+                encodeURIComponent(page),
+                '&params=',
+                encodeURIComponent(JSON.stringify(searchParams)),
+                '&isSilence=1&skipAd=1&k=****NaN*1663298820424***',
+            ].join('');
+
+            var weiboScheme = url.replace('https://m.weibo.cn/c/', 'sinaweibo://');
+
+            // 文本框设值
+            newsSchemeInput.value = newsScheme;
+            weiboSchemeInput.value = weiboScheme;
+
+            // 本地存储
+            localStorage.setItem('weibo2news-url', url);
+
+            // 转二维码
+            makeCode(newsScheme, weiboScheme);
+        }
+
+        // 首次转一次
+        convert();
+
+        // 输入框变化时转换
+        var timer = null;
+        input.onkeyup =
+            input.onmouseup =
+            input.onchange =
+            input.onblur =
+            input.oninput =
+            input.onpaste =
+            function () {
+                if (timer) {
+                    clearTimeout(timer);
+                }
+                setTimeout(function () {
+                    convert();
+                }, 1e3);
+            };
+    </script>
+</body>
+
+</html>
