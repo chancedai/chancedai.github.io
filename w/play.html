@@ -41,19 +41,20 @@
   <div class="video-wrapper">
     <video src="" controls id="video" autoplay>
       您的浏览器不支持 video 标签
-    </video>
+    </video>  
     <script>
       var params = (function(){ var obj = {}; location.href.replace(/([^?=&]+)=([^?=&]+)/gi, function (_, p1, p2) { obj[p1] = p2; }); return obj; })();
       var id = params.id || '';
-      var ids = ['3x3', 'football', 'golf', 'player', 'snow', 'sports', 'team', 'worldcup', 'sic'];
+      var ids = ['xmy', '3x3', 'football', 'golf', 'player', 'snow', 'sports', 'team', 'worldcup', 'sic'];
       if(ids.indexOf(id) === -1){
-        id = 'worldcup';
+        id = 'xmy';
       }
       var video = document.getElementById('video');
       video.src = 'img/'+ id +'.mp4';
       video.poster = 'img/'+ id + '.jpg';
     </script>
   </div>
+  <script src="../s/m.js"></script>
 </body>
 
 </html>
