@@ -41,7 +41,7 @@
       padding-bottom: constant(safe-area-inset-bottom);
       padding-bottom: env(safe-area-inset-bottom);
       background: #5E4848;
-      padding: 5px;
+      padding: 25px;
     }
 
     article {
@@ -200,7 +200,8 @@
     @media(prefers-color-scheme: dark) {
       article {
         color: #d3d3d3;
-        background: #1e1e1e;
+        background-color: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(10px);
       }
 
       p {
@@ -248,6 +249,7 @@
 
     article {
       padding: 10px 0 0 0;
+      background: #fff;
     }
 
     a {
