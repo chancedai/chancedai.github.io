@@ -54,6 +54,12 @@
       box-sizing: border-box;
       border-radius: 9px;
       position: relative;
+      border:1px solid rgba(255,255,255,0.8);
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    em{
+      font-weight: bold;
+      font-style: normal;
     }
 
     h1 {
@@ -134,9 +140,10 @@
       font-size: 0.8em;
       color: #333;
       padding-left: 10px;
+      font-weight: normal;
     }
 
-    h2::after {
+    section h2::after {
       width: 200%;
       height: 200%;
       transform: scale(0.5);
@@ -146,13 +153,13 @@
       top: 0;
       left: 0;
       box-sizing: border-box;
-      border-bottom: 1px solid #000;
+      border-bottom: 1px solid #666;
     }
 
     .qr {
       position: absolute;
       right: 0;
-      top: -60px;
+      top: -105px;
     }
 
     .qr img {
@@ -178,10 +185,6 @@
       font-size: 0.8em;
       display: inline-block;
       margin-left: 6px;
-    }
-
-    .company::before {
-      border-color: #000;
     }
 
     .icon {
@@ -297,12 +300,14 @@
   <article>
     <h1>戴倡</h1>
     <div class="extra"></div>
+    <h2>前端开发经理</h2>
     <section>
       <p class="p-0"><svg class="icon" width="16px" height="16.00px" viewBox="0 0 1024 1024" version="1.1"
           xmlns="http://www.w3.org/2000/svg">
           <path fill="#999999"
             d="M885.6 230.2L779.1 123.8c-15.3-15.3-35.8-23.8-57.3-23.8-21.7 0-42.1 8.5-57.4 23.8L549.8 238.4c-15.3 15.3-23.8 35.8-23.8 57.3 0 21.7 8.5 42.1 23.8 57.4l83.8 83.8c-19.7 43.4-46.8 82.4-80.5 116.1-33.6 33.8-72.7 60.9-116.1 80.8L353.2 550c-15.3-15.3-35.8-23.8-57.3-23.8-21.7 0-42.1 8.5-57.4 23.8L123.8 664.5c-15.3 15.3-23.8 35.8-23.8 57.4 0 21.7 8.5 42.1 23.8 57.4l106.3 106.3c24.4 24.5 58.1 38.4 92.7 38.4 7.3 0 14.3-0.6 21.2-1.8 134.8-22.2 268.5-93.9 376.4-201.7C828.2 612.8 899.8 479.2 922.3 344c6.8-41.3-6.9-83.8-36.7-113.8z" />
-        </svg><a href="tel:+86-13466693759">13466693759</a> / <svg class="icon" width="16px" height="16.00px"
+        </svg><a href="tel:+86-13466693759">13466693759</a></p>
+      <p class="p-0"><svg class="icon" width="16px" height="16.00px"
           viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
           <path fill="#999999"
             d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32z m-80.8 108.9L531.7 514.4c-7.8 6.1-18.7 6.1-26.5 0L189.6 268.9c-1.8-1.4-2.8-3.5-2.8-5.7 0-4 3.2-7.2 7.2-7.2h648.8c2.2 0 4.3 1 5.7 2.8 2.4 3.1 1.9 7.6-1.3 10.1z" />
@@ -311,50 +316,44 @@
           xmlns="http://www.w3.org/2000/svg">
           <path fill="#999999"
             d="M690.1 377.4c5.9 0 11.8 0.2 17.6 0.5-24.4-128.7-158.3-227.1-319.9-227.1C209 150.8 64 271.4 64 420.2c0 81.1 43.6 154.2 111.9 203.6 5.5 3.9 9.1 10.3 9.1 17.6 0 2.4-0.5 4.6-1.1 6.9-5.5 20.3-14.2 52.8-14.6 54.3-0.7 2.6-1.7 5.2-1.7 7.9 0 5.9 4.8 10.8 10.8 10.8 2.3 0 4.2-0.9 6.2-2l70.9-40.9c5.3-3.1 11-5 17.2-5 3.2 0 6.4 0.5 9.5 1.4 33.1 9.5 68.8 14.8 105.7 14.8 6 0 11.9-0.1 17.8-0.4-7.1-21-10.9-43.1-10.9-66 0-135.8 132.2-245.8 295.3-245.8z m-194.3-86.5c23.8 0 43.2 19.3 43.2 43.1s-19.3 43.1-43.2 43.1c-23.8 0-43.2-19.3-43.2-43.1s19.4-43.1 43.2-43.1z m-215.9 86.2c-23.8 0-43.2-19.3-43.2-43.1s19.3-43.1 43.2-43.1 43.2 19.3 43.2 43.1-19.4 43.1-43.2 43.1zM866.7 792.7c56.9-41.2 93.2-102 93.2-169.7 0-124-120.8-224.5-269.9-224.5-149 0-269.9 100.5-269.9 224.5S540.9 847.5 690 847.5c30.8 0 60.6-4.4 88.1-12.3 2.6-0.8 5.2-1.2 7.9-1.2 5.2 0 9.9 1.6 14.3 4.1l59.1 34c1.7 1 3.3 1.7 5.2 1.7 2.4 0 4.7-0.9 6.4-2.6 1.7-1.7 2.6-4 2.6-6.4 0-2.2-0.9-4.4-1.4-6.6-0.3-1.2-7.6-28.3-12.2-45.3-0.5-1.9-0.9-3.8-0.9-5.7 0.1-5.9 3.1-11.2 7.6-14.5zM600.2 587.2c-19.9 0-36-16.1-36-35.9 0-19.8 16.1-35.9 36-35.9s36 16.1 36 35.9c0 19.8-16.2 35.9-36 35.9z m179.9 0c-19.9 0-36-16.1-36-35.9 0-19.8 16.1-35.9 36-35.9s36 16.1 36 35.9c-0.1 19.8-16.2 35.9-36 35.9z" />
-        </svg><a href="wechat.html">changdai</a> / <svg class="icon" width="16px" height="16.00px"
-          viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
-          <path fill="#999999"
-            d="M457.3 543c-68.1-17.7-145 16.2-174.6 76.2-30.1 61.2-1 129.1 67.8 151.3 71.2 23 155.2-12.2 184.4-78.3 28.7-64.6-7.2-131-77.6-149.2z m-52 156.2c-13.8 22.1-43.5 31.7-65.8 21.6-22-10-28.5-35.7-14.6-57.2 13.7-21.4 42.3-31 64.4-21.7 22.4 9.5 29.6 35 16 57.3z m45.5-58.5c-5 8.6-16.1 12.7-24.7 9.1-8.5-3.5-11.2-13.1-6.4-21.5 5-8.4 15.6-12.4 24.1-9.1 8.7 3.2 11.8 12.9 7 21.5zM785.3 443.5c15 4.8 31-3.4 35.9-18.3 11.8-36.6 4.4-78.4-23.2-109-27.6-30.6-68.4-42.3-106-34.3-15.4 3.3-25.2 18.4-21.9 33.8 3.3 15.3 18.4 25.2 33.8 21.8 18.4-3.9 38.3 1.8 51.9 16.7 13.5 15 17.2 35.4 11.3 53.3-4.9 15.1 3.2 31.1 18.2 36zM885.1 237.5c-56.7-62.9-140.4-86.9-217.7-70.5-17.9 3.8-29.3 21.4-25.4 39.3 3.8 17.9 21.4 29.3 39.3 25.5 55-11.7 114.4 5.4 154.8 50.1 40.3 44.7 51.2 105.7 34 159.1-5.6 17.4 3.9 36 21.3 41.7 17.4 5.6 36-3.9 41.6-21.2v-0.1c24.1-75.4 8.9-161.1-47.9-223.9zM729 499c-12.2-3.6-20.5-6.1-14.1-22.1 13.8-34.7 15.2-64.7 0.3-86-28-40.1-104.8-37.9-192.8-1.1 0 0-27.6 12.1-20.6-9.8 13.5-43.5 11.5-79.9-9.6-101-47.7-47.8-174.6 1.8-283.5 110.6C127.3 471.1 80 557.5 80 632.2 80 775.1 263.2 862 442.5 862c235 0 391.3-136.5 391.3-245 0-65.5-55.2-102.6-104.8-118zM443 810.8c-143 14.1-266.5-50.5-275.8-144.5-9.3-93.9 99.2-181.5 242.2-195.6 143-14.2 266.5 50.5 275.8 144.4C694.4 709 586 796.6 443 810.8z" />
-        </svg><a href="http://weibo.com/changdai">changdai</a></p>
+        </svg><a href="wechat.html">changdai</a>
       <a href="http://changdai.me/r/" class="qr"><img
           src="data:image/png;base64,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"
           alt="https://changdai.me/r"></a>
     </section>
     <section>
       <h2>职业概述</h2>
-      <p>前端开发经理，有15年的前端开发经验和8年的前端团队管理经验，擅长多项目管理、快速提效和跨部门沟通，具备出色的技术知识和管理能力。</p>
+      <p>拥有15年的前端开发经验和8年的前端团队管理经验，致力于提高团队效率、跨部门协作和实现快速交付。具备出色的技术知识和管理能力，专注于多项目管理和卓越团队领导。</p>
     </section>
     <section>
       <h2>职业技能</h2>
-      <p class="p-0">精通 (Node)JS 、 CSS(3) 、 HTML(5)等前端技术</p>
-      <p class="p-0">熟悉 React / Electron 等前端类库框架</p>
-      <p class="p-0">熟练掌握Web性能优化、SEO 和网站安全等方面的知识</p>
-      <p class="p-0">熟练在 Hybird APP、小程序、PC、Wap 各端应用环境下开发</p>
-      <p class="p-0">熟悉前端开发测试环境搭建 CentOS / Nginx / VScode / Git ...</p>
-      <p class="p-0">熟悉敏捷开发、Scrum 框架和 DevOps 实践</p>
+      <p class="p-0">精通 (Node)JS 、 CSS(3) 、 HTML(5)等前端技术，深入了解现代前端开发工具和框架。</p>
+      <p class="p-0">熟悉 React / Express 等前后端类库框架，善于在不同环境下进行开发，包括Hybrid APP、小程序、PC和Wap。</p>
+      <p class="p-0">具备Web性能优化、SEO和网站安全等方面的知识，能够有效提升用户体验和保护网站安全。</p>
+      <p class="p-0">熟练搭建和配置开发测试环境，熟悉CentOS、Nginx、VScode和Git等工具和平台。</p>
+      <p class="p-0">熟悉ChatGPT业务应用与落地，能够将自然语言处理技术应用于实际业务场景。</p>
     </section>
     <section>
       <h2>管理经验</h2>
-      <p class="p-0">长期领导一个3-8人的前端开发团队，管理多个项目</p>
-      <p class="p-0">负责制定技术方案、人力时间表和风险管理计划</p>
-      <p class="p-0">指导前端开发团队，帮助解决技术难题、出具 demo 和提高工作效率</p>
-      <p class="p-0">负责与产品、UI设计师和后端开发团队合作，确保项目按时交付，并与公司整体战略保持一致</p>
+      <p class="p-0">长期领导一个由3-8名前端开发人员组成的团队，负责团队的技术方案制定、人力时间表和风险管理计划。</p>
+      <p class="p-0">指导前端开发团队，协助解决技术难题，提供示例代码以提高工作效率。</p>
+      <p class="p-0">与产品、UI设计师和后端开发团队紧密合作，确保项目按时交付，并与公司整体战略保持一致。</p>
     </section>
     <section>
       <h2>工作业绩</h2>
-      <p class="p-0">在任职资深前端开发工程师期间，负责最重要项目的前端开发，如新浪首页、各通用组件等，个人代码在所有新浪 PC 端页面覆盖率达到95%</p>
-      <p class="p-0">在周期性大型赛事人力紧缺和时间紧迫的情况下，快速按质按量交付2届世界杯、2届奥运会和欧洲杯等大型项目，前端开发成本节省50%以上</p>
-      <p class="p-0">用3人力2个月内，把所有新浪体育APP项目迁移到新浪新闻 APP，并同步开发等量的微博小程序及 H5项目</p>
-      <p class="p-0">以1人之力，开发搭建整个前端团队使用工作流环境，如开发、测试及部署等</p>
+      <p class="p-0">作为资深前端开发工程师，负责最重要项目的前端开发，包括新浪首页和各通用组件等，个人代码在所有新浪PC端页面中的覆盖率达到95%。</p>
+      <p class="p-0">在周期性大型赛事人力紧缺和时间紧迫的情况下，成功交付了2届世界杯、2届奥运会和欧洲杯等大型项目，实现前端开发成本节省50%以上。</p>
+      <p class="p-0">在2个月内，以3名团队成员的力量，将所有新浪体育APP项目迁移到新浪新闻APP，并同时开发了相应的微博小程序和H5项目。</p>
+      <p class="p-0">个人开发并搭建了整个前端团队的工作流环境，包括开发、测试和部署等。</p>
     </section>
     <section>
       <h2>工作经历</h2>
       <p class="p-0 company">自由职业<em class="time">2023.1 - 至今</em></p>
-      <p class="p-1"><em class="p-title">全栈开发</em> / 小名言（个人项目）</p>
+      <p class="p-1"><em class="p-title">全栈开发</em> / 小名言 - 公众号(ChatGPT)及小程序(名言收集)</p>
       <p class="p-0 company">新浪 / 微博<em class="time">2011.9 - 2022.12 </em></p>
       <p class="p-1"><em class="p-title">前端开发经理</em> / 体育事业部 - 技术产品<em class="time">2015.6 - 2022.12 </em></p>
       <p class="p-1"><em class="p-title">资深前端开发工程师</em> / 运营部 - 网络应用开发<em class="time">2011.9 - 2015.6</em></p>
-      <p class="p-0 company">五洲在线(北京)电子商务有限公司<em class="time">2009.7 - 2011.9</em></p>
+      <p class="p-0 company">五洲在线<em class="time">2009.7 - 2011.9</em></p>
       <p class="p-1"><em class="p-title">高级前端开发工程师</em> / UED</p>
     </section>
     <section>
@@ -379,7 +378,7 @@
   </article>
   <script>
     var images = [];
-    var ids = ['3x3', 'football', 'golf', 'player', 'snow', 'sports', 'team', 'worldcup', 'sic'];
+    var ids = ['xmy', '3x3', 'football', 'golf', 'player', 'snow', 'sports', 'team', 'worldcup', 'sic'];
     for (i = 0; i < ids.length; i++) {
       var img = new Image();
       img.src = '../w/img/' + ids[i] + '.jpg';
